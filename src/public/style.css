@@ -1,0 +1,134 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff8f6;
+}
+
+.banner {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding-left: 12%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff8f6 0%,
+            #fff8f6 42%,
+            rgba(255, 248, 246, 0.75) 58%,
+            rgba(255, 248, 246, 0.15) 100%
+        ),
+        url("torta.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+/* conteúdo */
+
+.conteudo {
+    text-align: center;
+    z-index: 2;
+}
+
+.detalhe {
+    display: block;
+    margin-bottom: 18px;
+
+    color: #c85b70;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+h1 {
+    color: #6d2637;
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(4rem, 9vw, 8rem);
+    line-height: 0.85;
+    font-weight: 400;
+}
+
+h1 em {
+    color: #c93655;
+    font-style: italic;
+}
+
+.linha {
+    width: 60px;
+    height: 2px;
+
+    margin: 30px auto 20px;
+
+    background: #d65b72;
+}
+
+p {
+    color: #815965;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* morangos decorativos */
+
+
+
+
+/* detalhes decorativos */
+
+.banner::before {
+    content: "";
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    left: -150px;
+    top: -150px;
+
+    border-radius: 50%;
+
+    background: #f8cbd3;
+}
+
+.banner::after {
+    content: "♡";
+
+    position: absolute;
+
+    right: 10%;
+    top: 15%;
+
+    color: #e8a8b5;
+    font-size: 45px;
+
+    transform: rotate(15deg);
+}
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    .morangos {
+        right: 5%;
+        bottom: 8%;
+        font-size: 50px;
+    }
+
+    .morangos span {
+        font-size: 30px;
+    }
+}
