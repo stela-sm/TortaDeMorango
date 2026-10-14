@@ -24,7 +24,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/app-docker-aula:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/app-docker-aula:latest
 
   deploy:
     needs: build
