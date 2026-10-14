@@ -42,7 +42,5 @@ jobs:
             docker --version
             docker ps -a
             docker pull ${{ secrets.DOCKER_USERNAME }}/app-docker-aula:latest
-            docker rm -f app-docker-aula || true
-            docker run -d --name app-docker-aula -p 80:80 --restart unless-stopped ${{ secrets.DOCKER_USERNAME }}/app-docker-aula:latest
-            docker ps -a
-            docker logs --tail 50 app-docker-aula
+            docker run -d --name app-docker-aula -p 80:80 --restart unless-stopped stela-sm/app-docker-aula:latest
+            docker inspect app-docker-aula --format '{{.Config.Image}}'
