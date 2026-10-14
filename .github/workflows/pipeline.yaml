@@ -38,6 +38,6 @@ jobs:
           username: ${{ secrets.AZURE_VM_USER }}
           key: ${{ secrets.AZURE_VM_SSH_KEY }}
           script: |
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/app-docker-aula:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/app-docker-aula:latest
             docker rm -f app-docker-aula || true
-            docker run -d --name app-docker-aula -p 80:80 --restart unless-stopped ${{ secrets.DOCKERHUB_USERNAME }}/app-docker-aula:latest
+            docker run -d --name app-docker-aula -p 80:80 --restart unless-stopped ${{ secrets.DOCKER_USERNAME }}/app-docker-aula:latest
