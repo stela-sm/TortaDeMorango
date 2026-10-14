@@ -24,7 +24,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/app-docker-aula:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/torta-de-morango:latest
 
   deploy:
     needs: build
@@ -40,15 +40,15 @@ jobs:
           script: |
             set -e
 
-            docker pull stelasm/app-docker-aula:latest
+            docker pull stelasm/torta-de-morango:latest
 
-            docker rm -f app-docker-aula 2>/dev/null || true
+            docker rm -f torta-de-morango 2>/dev/null || true
 
             docker run -d \
-              --name app-docker-aula \
+              --name torta-de-morango \
               -p 80:80 \
               --restart unless-stopped \
-              stelasm/app-docker-aula:latest
+              stelasm/torta-de-morango:latest
 
-            docker ps --filter "name=app-docker-aula"
-            docker logs --tail 30 app-docker-aula
+            docker ps --filter "name=torta-de-morango"
+            docker logs --tail 30 torta-de-morango
