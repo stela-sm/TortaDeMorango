@@ -38,9 +38,17 @@ jobs:
           username: ${{ secrets.AZURE_VM_USER }}
           key: ${{ secrets.AZURE_VM_SSH_KEY }}
           script: |
-            whoami
-            docker --version
-            docker ps -a
-            docker pull ${{ secrets.DOCKER_USERNAME }}/app-docker-aula:latest
-            docker run -d --name app-docker-aula -p 80:80 --restart unless-stopped stelasm/app-docker-aula:latest
-            docker inspect app-docker-aula --format '{{.Config.Image}}'
+            set -e
+
+            docker pull stela-sm/app-docker-aula:latest
+
+            docker rm -f app-docker-aula 2>/dev/null || true
+
+            docker run -d \
+              --name app-docker-aula \
+              -p 80:80 \
+              --restart unless-stopped \
+              stela-sm/app-docker-aula:latest
+
+            docker ps --filter "name=app-docker-aula"
+            docker logs --tail 30 app-docker-aula
